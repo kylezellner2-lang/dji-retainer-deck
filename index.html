@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DJI × Kyle Zellner</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        paper: '#FFFFFF',
+        soft:  '#F4F5F7',
+        ink:   '#0B0C0E',
+        mute:  '#6E737B',
+        line:  '#E4E6EA',
+        dji:   '#0F6BFF',
+        dji2:  '#4E96FF',
+      },
+      fontFamily: {
+        head: ['Sora', 'sans-serif'],
+        body: ['Inter', 'sans-serif'],
+      },
+    },
+  },
+};
+</script>
+<style>
+  html { scroll-behavior: smooth; overflow-x: hidden; }
+  body { background: #FFFFFF; overflow-x: hidden; }
+  section[id] { scroll-margin-top: 72px; }
+  ::selection { background: #0F6BFF; color: #fff; }
+
+  .eyebrow { letter-spacing: .28em; }
+  .tnum { font-variant-numeric: tabular-nums; font-feature-settings: "tnum"; }
+
+  /* Media tiles */
+  .slot { position: relative; overflow: hidden; background: #EDEFF2; border: 1px solid #E4E6EA; }
+  .slot video, .slot img { width: 100%; height: 100%; object-fit: cover; display:block; }
+  video:fullscreen, video:-webkit-full-screen { object-fit: contain !important; width: 100%; height: 100%; }
+  .slot .empty { position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    background: repeating-linear-gradient(45deg,#EDEFF2,#EDEFF2 12px,#E7E9ED 12px,#E7E9ED 24px); }
+  /* covers the play glyph Instagram bakes into its reel cover images */
+  .slot .play { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+    width:27%; aspect-ratio:1; border-radius:9999px; background:rgba(255,255,255,.94);
+    display:flex; align-items:center; justify-content:center; color:#0B0C0E;
+    box-shadow:0 8px 26px rgba(11,12,14,.22); transition:transform .35s ease, background .35s ease; }
+  .slot .play svg { width:42%; margin-left:6%; }
+  .slot a:hover .play { transform:translate(-50%,-50%) scale(1.06); background:#fff; }
+
+  /* Scroll reveal */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  /* Nav active */
+  .navlink { position: relative; }
+  .navlink.active { color: #0B0C0E; }
+  .navlink.active::after { width: 100%; }
+  .navlink::after { content:''; position:absolute; left:0; bottom:-4px; height:1px; width:0; background:#0F6BFF; transition:width .3s ease; }
+
+  @media print {
+    .reveal{opacity:1!important;transform:none!important;}
+    .no-print{display:none!important;}
+    section{page-break-inside:avoid;}
+  }
+</style>
+</head>
+<body class="font-body text-ink antialiased">
+
+<!-- NAV -->
+<header class="no-print fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-white/80 border-b border-line">
+  <div class="max-w-6xl mx-auto px-6 h-[72px] flex items-center justify-between">
+    <a href="#hero" class="font-head font-extrabold tracking-tight text-sm">
+      <span class="text-ink">DJI</span> <span class="text-mute font-semibold">× Recap</span>
+    </a>
+    <nav class="hidden md:flex gap-8 text-sm text-mute font-medium">
+      <a href="#numbers" class="navlink hover:text-ink transition">The numbers</a>
+      <a href="#campaigns" class="navlink hover:text-ink transition">The range</a>
+      <a href="#films" class="navlink hover:text-ink transition">The videos</a>
+      <a href="#next" class="navlink hover:text-ink transition">What's next</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="hero" class="relative min-h-screen flex items-center pt-28 pb-20 overflow-hidden">
+  <div class="absolute right-0 -top-40 w-[900px] h-[620px] max-w-full pointer-events-none"
+       style="background:radial-gradient(50% 50% at 60% 50%,rgba(15,107,255,.10) 0%,rgba(15,107,255,0) 70%);"></div>
+  <div class="relative z-10 max-w-6xl mx-auto px-6 w-full grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
+    <div class="min-w-0">
+      <p class="eyebrow uppercase text-dji text-xs font-semibold mb-5">DJI × <a href="https://www.instagram.com/kyle.zellner/" target="_blank" rel="noopener" class="underline underline-offset-2 decoration-dji/30 hover:decoration-dji transition">@kyle.zellner</a> · Osmo 360 · Action 6 · Osmo 2</p>
+      <h1 class="font-head font-extrabold leading-[0.95] text-5xl sm:text-6xl md:text-7xl tracking-tight">
+        4&nbsp;CAMPAIGNS.<br><span class="text-dji">3.9M VIEWS.</span>
+      </h1>
+      <p class="mt-7 text-base md:text-lg text-mute max-w-xl min-w-0 leading-relaxed">
+        it's been a strong few months working on the Osmo 360, the Action 6 and the Osmo 2. I put this together so you can see, in one place, exactly what the work has done — and where I'd like to take it next.
+      </p>
+      <p class="mt-4 text-base md:text-lg text-mute max-w-xl min-w-0 leading-relaxed">
+        four campaigns, seven films, <span class="text-ink font-semibold">3.9 million views</span> — shot out of hot air balloons, off helicopters, and in freefall.
+      </p>
+    </div>
+    <div class="reveal">
+      <div class="relative rounded-3xl overflow-hidden border border-line aspect-[4/5] shadow-[0_30px_80px_rgba(11,12,14,.18)]">
+        <img id="heroImg" src="assets/hero.jpg" alt="" class="absolute inset-0 w-full h-full object-cover" style="object-position:50% 40%;">
+      </div>
+    </div>
+  </div>
+  <div class="no-print absolute bottom-8 left-1/2 -translate-x-1/2 text-mute text-xs eyebrow uppercase animate-pulse">Scroll ↓</div>
+</section>
+
+<!-- THE NUMBERS -->
+<section id="numbers" class="py-24 md:py-32 border-y border-line bg-soft">
+  <div class="max-w-6xl mx-auto px-6">
+    <p class="eyebrow uppercase text-dji text-xs font-bold mb-3 reveal">The numbers</p>
+    <h2 class="font-head font-extrabold text-3xl md:text-4xl tracking-tight max-w-2xl reveal mb-14">What the work has done.</h2>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-x-10 gap-y-12">
+      <div class="reveal min-w-0">
+        <div class="font-head font-extrabold text-4xl sm:text-5xl md:text-6xl text-dji tnum"><span class="count" data-to="3.86">0</span>M</div>
+        <div class="mt-3 font-head font-semibold text-sm">Views</div>
+        <div class="mt-1 text-sm text-mute">Four reels on my feed</div>
+      </div>
+      <div class="reveal min-w-0">
+        <div class="font-head font-extrabold text-4xl sm:text-5xl md:text-6xl tnum"><span class="count" data-to="0.97">0</span>M</div>
+        <div class="mt-3 font-head font-semibold text-sm">Average per video</div>
+        <div class="mt-1 text-sm text-mute">965,000 average</div>
+      </div>
+      <div class="reveal min-w-0">
+        <div class="font-head font-extrabold text-4xl sm:text-5xl md:text-6xl tnum"><span class="count" data-to="97">0</span>K</div>
+        <div class="mt-3 font-head font-semibold text-sm">On your channels</div>
+        <div class="mt-1 text-sm text-mute">The two UGC pieces, on @dji and DJI Europe</div>
+      </div>
+      <div class="reveal min-w-0">
+        <div class="font-head font-extrabold text-4xl sm:text-5xl md:text-6xl tnum"><span class="count" data-to="265">0</span>K</div>
+        <div class="mt-3 font-head font-semibold text-sm">New followers</div>
+        <div class="mt-1 text-sm text-mute">Gained since June, across both platforms</div>
+      </div>
+    </div>
+
+    <p class="reveal mt-16 text-base md:text-lg text-mute max-w-3xl leading-relaxed">
+      All of that came from <span class="text-ink font-semibold">$5,250</span> of spend across the four films on my feed. I'm not going to price the next six months on a view count though — what follows is priced on the work itself.
+    </p>
+  </div>
+</section>
+
+<!-- THE RANGE -->
+<section id="campaigns" class="py-24 md:py-32">
+  <div class="max-w-6xl mx-auto px-6">
+    <p class="eyebrow uppercase text-dji text-xs font-bold mb-3 reveal">The range</p>
+    <h2 class="font-head font-extrabold text-3xl md:text-5xl tracking-tight max-w-3xl reveal">The range we covered</h2>
+
+    <p class="mt-10 text-xl md:text-2xl max-w-4xl leading-relaxed reveal">hanging upside down over the Rio shoreline, heli missions across the city, swinging out of a hot air balloon at altitude, jumping from one at sunrise, freefall, canopy, the exit and the landing — shot handheld, mounted, and in freefall, in conditions most crews will not take a camera into.</p>
+
+    <div class="grid md:grid-cols-3 gap-10 lg:gap-14 mt-20">
+      <div class="reveal">
+        <div class="font-head font-bold text-dji text-sm mb-3">No crew</div>
+        <p class="text-base text-mute leading-relaxed">Every one of these was shot by me, on my own, in freefall or under canopy. There is no second camera operator and no safety van. That is why the cost per film is what it is, and why it doesn't scale with a production budget.</p>
+      </div>
+      <div class="reveal">
+        <div class="font-head font-bold text-dji text-sm mb-3">Real conditions</div>
+        <p class="text-base text-mute leading-relaxed">120mph freefall, altitude, wind, cold, saltwater. The camera either survives it and holds the shot, or the jump is wasted. Every film in this deck is the Osmo doing that, unedited in the ways that matter.</p>
+      </div>
+      <div class="reveal">
+        <div class="font-head font-bold text-dji text-sm mb-3">Places a production can't reach</div>
+        <p class="text-base text-mute leading-relaxed">Hot air balloons at altitude, helicopter exits, jumps most licensed skydivers won't film. This isn't a studio shoot with your product in it — it's your product in the one environment your marketing can't fake.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE FILMS -->
+<section id="films" class="py-20 md:py-28 border-y border-line bg-soft">
+  <div class="max-w-6xl mx-auto px-6">
+    <p class="eyebrow uppercase text-dji text-xs font-bold mb-6 reveal">The videos</p>
+    <p class="text-xl md:text-2xl max-w-3xl leading-relaxed reveal">Every one of them is still live, and still collecting views.</p>
+    <p class="mt-6 text-base text-mute max-w-3xl leading-relaxed reveal">Worth being straight about where each one came from — one direct with your team, three through the partner agency.</p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-14" id="filmGrid"></div>
+
+    <div class="reveal mt-16 rounded-2xl border border-line bg-white p-8 md:p-10">
+      <p class="eyebrow uppercase text-mute text-[11px] font-bold mb-4">Two doors, one creator</p>
+      <p class="text-base md:text-lg text-mute leading-relaxed max-w-3xl">
+        Two more films were made for DJI to run itself — the <span class="text-ink font-semibold">Osmo 2</span> piece on @dji, and the <span class="text-ink font-semibold">Osmo 360</span> sunrise piece DJI Europe ran on Facebook, credited to me. That's another <span class="text-ink font-semibold">97,000 views</span> on your channels.
+      </p>
+      <p class="mt-5 text-base md:text-lg text-mute leading-relaxed max-w-3xl">
+        Which means seven films so far: <span class="text-ink font-semibold">three direct with your team</span>, four through the partner agency. Two budgets, two rates, two briefing processes, same creator. A retainer puts all of it in one place — one rate, one schedule, and the category locked to DJI.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S NEXT -->
+<section id="next" class="py-24 md:py-32">
+  <div class="max-w-6xl mx-auto px-6">
+    <p class="eyebrow uppercase text-dji text-xs font-bold mb-3 reveal">What's next</p>
+    <h2 class="font-head font-extrabold text-3xl md:text-5xl tracking-tight max-w-3xl reveal">I'd like to make this permanent.</h2>
+
+    <div class="mt-10 grid md:grid-cols-2 gap-10 lg:gap-16 items-start">
+      <div class="reveal">
+        <p class="text-base md:text-lg text-mute leading-relaxed">
+          When we started in June I was at <span class="text-ink font-semibold">75,000</span> on Instagram. I'm at <span class="text-ink font-semibold">163,000</span> now. I've also built a Facebook audience from nothing to <span class="text-ink font-semibold">177,000</span> in the same window — a platform DJI Europe is already posting my work to. That's <span class="text-ink font-semibold">340,000 people</span> across the two, and 265,000 of them arrived during this partnership.
+        </p>
+        <p class="mt-5 text-base md:text-lg text-mute leading-relaxed">
+          I'm moving my partnerships onto retainers. It keeps things long term instead of campaign to campaign, it stops my feed getting oversaturated with brand deals, and it protects how well brand content performs when it does go out.
+        </p>
+        <p class="mt-5 text-base md:text-lg text-mute leading-relaxed">
+          I'd like DJI to be the camera brand I work with — not one of several. Three films a month, built around whichever product you want pushed, priced flat per deliverable, and no other camera company on my feed for the length of the term.
+        </p>
+      </div>
+
+      <div class="reveal rounded-3xl border border-line bg-white p-8 md:p-10 shadow-[0_20px_60px_rgba(11,12,14,.08)]">
+        <p class="eyebrow uppercase text-mute text-[11px] font-bold mb-6">The proposal</p>
+        <div class="flex items-baseline gap-2">
+          <span class="font-head font-extrabold text-5xl md:text-6xl tracking-tight tnum">$7,500</span>
+          <span class="font-head font-semibold text-lg text-mute">/ month</span>
+        </div>
+        <p class="mt-3 text-sm text-mute">Three films a month.</p>
+        <div class="mt-7 space-y-3 text-sm">
+          <div class="flex items-baseline justify-between gap-4 pb-3 border-b border-line">
+            <span>Two "shot on" films <span class="text-mute">— posted to my feed</span></span>
+            <span class="font-head font-semibold tnum whitespace-nowrap">$2,750 ea</span>
+          </div>
+          <div class="flex items-baseline justify-between gap-4 pb-3 border-b border-line">
+            <span>One UGC film <span class="text-mute">— delivered to you</span></span>
+            <span class="font-head font-semibold tnum whitespace-nowrap">$2,000</span>
+          </div>
+          <div class="flex items-baseline justify-between gap-4">
+            <span class="font-semibold">Monthly total</span>
+            <span class="font-head font-bold tnum whitespace-nowrap">$7,500</span>
+          </div>
+        </div>
+        <ul class="mt-9 space-y-4 text-sm">
+          <li class="flex gap-3"><span class="text-dji font-bold">01</span><span><span class="font-semibold">Two "shot on" films a month.</span> <span class="text-mute">posted to my feed, concepted around whichever product needs the push.</span></span></li>
+          <li class="flex gap-3"><span class="text-dji font-bold">02</span><span><span class="font-semibold">One UGC piece a month.</span> <span class="text-mute">delivered to you, for DJI's own channels.</span></span></li>
+          <li class="flex gap-3"><span class="text-dji font-bold">03</span><span><span class="font-semibold">Category exclusivity.</span> <span class="text-mute">no other camera brand on my feed for the term.</span></span></li>
+          <li class="flex gap-3"><span class="text-dji font-bold">04</span><span><span class="font-semibold">Six months.</span> <span class="text-mute">a real partnership, not a campaign.</span></span></li>
+        </ul>
+        <div class="mt-8 pt-6 border-t border-line text-sm text-mute">
+          Flat rate per deliverable, fixed for the term — it doesn't move with how any single film performs, in either direction.
+        </div>
+        <div class="mt-5 text-sm text-mute">
+          Separately: your affiliate code stays in my bio and Linktree for the full term, on standard commission. Cameras supplied for each campaign, as we've been doing.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSE -->
+<footer class="py-24 md:py-36 border-t border-line text-center bg-soft">
+  <div class="max-w-5xl mx-auto px-6">
+    <p class="font-head font-extrabold text-3xl sm:text-4xl md:text-5xl reveal tracking-tight leading-tight">Whatever you want pushed next — I'll jump with it.</p>
+    <p class="text-mute mt-8 text-sm eyebrow uppercase reveal">Recap · <span class="text-ink font-semibold">DJI</span> × <a href="https://www.instagram.com/kyle.zellner/" target="_blank" rel="noopener" class="text-dji underline underline-offset-4 decoration-dji/50 hover:decoration-dji transition">@kyle.zellner</a></p>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   DJI CAMPAIGN RECAP — config.
+   Drop covers/videos in assets/ and update `media` below.
+   All view figures verified from Instagram Reel insights.
+   ============================================================ */
+const RECAP = {
+  films: [
+    { title: "Upside down over Rio", product: "Osmo 360", source: "Direct with DJI", views: 2363084, likes: 91089, comments: 223, url: "https://www.instagram.com/reel/DZmtbkiM8lg/", media: "film-01.mp4" },
+    { title: "Heli missions in Rio", product: "Action 6", source: "Via partner", views: 679145, likes: 16469, comments: 104, url: "https://www.instagram.com/reel/DbGT2AIMZqO/", media: "film-02.mp4" },
+    { title: "Swinging through the sky", product: "Osmo 360", source: "Via partner", views: 659975, likes: 6096, comments: 33, url: "https://www.instagram.com/reel/DbG8BtWBWip/", media: "film-03.mp4" },
+    { title: "Talk about a good view", product: "Action 6", source: "Via partner", views: 160113, likes: 4602, comments: 27, url: "https://www.instagram.com/reel/DbrAndISFUz/", media: "film-04.mp4" },
+  ],
+};
+
+const fmt = n => n.toLocaleString("en-US");
+const short = n => n >= 1e6 ? (n/1e6).toFixed(2).replace(/\.?0+$/,"") + "M" : (n/1e3).toFixed(0) + "K";
+
+/* ---- film tiles ---- */
+function filmHTML(f){
+  let media = `<div class="empty"><span class="font-head font-semibold text-xs eyebrow uppercase text-mute">${f.title}</span></div>`;
+  if (f.media) {
+    const isVid = /\.(mp4|mov|webm)$/i.test(f.media);
+    media = isVid
+      ? `<video src="assets/${f.media}" poster="assets/${f.media.replace(/\.(mp4|mov|webm)$/i,'.jpg')}" controls playsinline preload="metadata"></video>`
+      : `<a href="${f.url}" target="_blank" rel="noopener" class="block w-full h-full group">
+           <img src="assets/${f.media}" alt="" class="transition duration-500 group-hover:scale-[1.03]">
+           <span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+         </a>`;
+  }
+  return `
+    <div class="reveal">
+      <div class="slot aspect-[9/16] rounded-2xl">${media}</div>
+      <div class="mt-4 flex items-baseline justify-between gap-3">
+        <div class="font-head font-semibold text-base">${f.title}</div>
+        <div class="text-[11px] eyebrow uppercase text-mute font-semibold">${f.product}</div>
+      </div>
+      <div class="mt-2 text-[11px] font-semibold ${f.source === 'Direct with DJI' ? 'text-dji' : 'text-mute'}">${f.source}</div>
+      <div class="mt-3 grid grid-cols-3 gap-2 text-center">
+        <div><div class="font-head font-bold text-base tnum">${short(f.views)}</div><div class="text-[11px] text-mute mt-0.5">views</div></div>
+        <div><div class="font-head font-bold text-base tnum">${short(f.likes)}</div><div class="text-[11px] text-mute mt-0.5">likes</div></div>
+        <div><div class="font-head font-bold text-base tnum">${fmt(f.comments)}</div><div class="text-[11px] text-mute mt-0.5">comments</div></div>
+      </div>
+      <a href="${f.url}" target="_blank" rel="noopener"
+         class="no-print mt-4 inline-flex items-center gap-2 text-xs font-semibold text-dji hover:underline underline-offset-4">
+        Watch on Instagram
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </a>
+    </div>`;
+}
+document.getElementById("filmGrid").innerHTML = RECAP.films.map(filmHTML).join("");
+
+/* ---- scroll reveal ---- */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.12 });
+const revealAll = () => document.querySelectorAll('.reveal').forEach(el => {
+  const r = el.getBoundingClientRect();
+  if (r.top < window.innerHeight && r.bottom > 0) el.classList.add('in'); else io.observe(el);
+});
+revealAll();
+window.addEventListener('load', revealAll);
+
+/* ---- gentle count-up ---- */
+const countIO = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target, to = +el.dataset.to; let start = null;
+    const dec = to % 1 !== 0; const places = el.dataset.places ? +el.dataset.places : (to < 1 ? 2 : 1); const dur = 1200;
+    const step = (t) => {
+      if (!start) start = t;
+      const p = Math.min((t - start) / dur, 1);
+      el.textContent = dec ? (p * to).toFixed(places) : Math.floor(p * to).toString();
+      if (p < 1) requestAnimationFrame(step); else el.textContent = dec ? to.toFixed(places) : to;
+    };
+    requestAnimationFrame(step);
+    countIO.unobserve(el);
+  });
+}, { threshold: 0.6 });
+document.querySelectorAll('.count').forEach(el => countIO.observe(el));
+
+/* ---- hero image framing (open index.html?adjust to use) ---- */
+(function(){
+  var img = document.getElementById('heroImg');
+  if(!img) return;
+  try {
+    var s = JSON.parse(localStorage.getItem('djiHeroAdj')||'null');
+    if(s){ img.style.objectPosition = s.x+'% '+s.y+'%'; img.style.transform = 'scale('+(s.z/100)+')'; }
+  } catch(e){}
+  if(location.search.indexOf('adjust') < 0) return;
+
+  var panel = document.createElement('div');
+  panel.className = 'no-print';
+  panel.style.cssText = 'position:fixed;bottom:18px;right:18px;z-index:300;background:#fff;border:1px solid #E4E6EA;border-radius:14px;padding:16px 18px;width:250px;font-family:Inter,sans-serif;color:#0B0C0E;box-shadow:0 16px 50px rgba(11,12,14,.18)';
+  function cur(k,d){ try{var s=JSON.parse(localStorage.getItem('djiHeroAdj')||'null'); return s&&s[k]!=null?s[k]:d;}catch(e){return d;} }
+  panel.innerHTML =
+    '<div style="font-family:Sora;font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#0F6BFF;margin-bottom:12px">Hero image framing</div>'+
+    '<label style="display:block;font-size:11px;color:#6E737B;margin-bottom:12px">Left / right<input id="adjX" type="range" min="0" max="100" value="'+cur('x',50)+'" style="width:100%;accent-color:#0F6BFF"></label>'+
+    '<label style="display:block;font-size:11px;color:#6E737B;margin-bottom:12px">Up / down<input id="adjY" type="range" min="0" max="100" value="'+cur('y',40)+'" style="width:100%;accent-color:#0F6BFF"></label>'+
+    '<label style="display:block;font-size:11px;color:#6E737B;margin-bottom:12px">Zoom<input id="adjZ" type="range" min="100" max="220" value="'+cur('z',100)+'" style="width:100%;accent-color:#0F6BFF"></label>'+
+    '<div id="adjOut" style="font:11px/1.5 monospace;color:#6E737B;margin-top:6px;word-break:break-all"></div>';
+  document.body.appendChild(panel);
+  var x=panel.querySelector('#adjX'), y=panel.querySelector('#adjY'), z=panel.querySelector('#adjZ'), out=panel.querySelector('#adjOut');
+  function apply(){
+    img.style.objectPosition = x.value+'% '+y.value+'%';
+    img.style.transform = 'scale('+(z.value/100)+')';
+    out.textContent = 'object-position: '+x.value+'% '+y.value+'%\nscale: '+(z.value/100);
+    localStorage.setItem('djiHeroAdj', JSON.stringify({x:x.value,y:y.value,z:z.value}));
+  }
+  [x,y,z].forEach(function(el){ el.addEventListener('input', apply); });
+  apply();
+})();
+
+/* ---- active nav ---- */
+const links = [...document.querySelectorAll('.navlink')];
+const map = links.map(l => ({ l, sec: document.querySelector(l.getAttribute('href')) })).filter(x => x.sec);
+const navIO = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      links.forEach(l => l.classList.remove('active'));
+      const m = map.find(x => x.sec === e.target);
+      if (m) m.l.classList.add('active');
+    }
+  });
+}, { threshold: 0.5 });
+map.forEach(x => navIO.observe(x.sec));
+</script>
+</body>
+</html>
